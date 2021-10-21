@@ -12,15 +12,19 @@ const App = () => {
     color: "blue",
     fontSize: "30px"
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (num % 3 === 0 && num !== 0) {
+      flag || setFlag(true);
+    } else {
+      flag && setFlag(false);
+    }
+    //下のコメントアウトで警告を無視することができる
+    //eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [num]);
   const changeFlag = () => {
     setFlag(!flag);
   };
-  if (num % 3 === 0 && num !== 0) {
-    flag || setFlag(true);
-  } else {
-    flag && setFlag(false);
-  }
+
   return (
     <>
       <h1 style={{ color: "red" }}>hello</h1>
